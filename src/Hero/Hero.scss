@@ -1,0 +1,280 @@
+$highlightgreen: #54e6af;
+$black: #121725;
+$darkgray: #2c344b;
+$medgray: #5a668a;
+$lgtgray: #c2cbe5;
+
+.main-section {
+  background-image: url("./Images/image-host.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right;
+  width: 100%;
+
+  .pod {
+    z-index: 2;
+    margin-bottom: 6.438rem;
+    position: relative;
+    transform: translateY(-52%);
+  }
+
+  .card-div {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    font-family: "Chivo", sans-serif;
+    background-color: $black;
+    width: fit-content;
+
+    h1 {
+      color: $highlightgreen;
+      font-weight: 300;
+      font-size: 3.25rem;
+      margin: 5.5rem 3.7rem 1.5rem 0rem;
+
+      span {
+        color: #ffffff;
+      }
+    }
+
+    p {
+      color: $lgtgray;
+      font-weight: 300;
+      max-width: 40ch;
+      line-height: 1.75rem;
+      font-size: 1.125rem;
+    }
+    .bottom-container {
+      display: flex;
+      flex-direction: column;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        background-color: $darkgray;
+        padding: 0.05rem;
+        border-radius: 50px;
+        width: fit-content;
+        margin: 2.5rem 0rem;
+
+        .input-area {
+          display: flex;
+        }
+
+        input {
+          border: none;
+          background-color: transparent;
+          padding: 0rem 4.5rem 0rem 2rem;
+          outline: none;
+          color: $lgtgray;
+          font-weight: 700;
+        }
+
+        ::placeholder {
+          color: $lgtgray;
+          font-weight: 700;
+        }
+
+        button {
+          border: none;
+          color: $black;
+          background-color: $highlightgreen;
+          padding: 0.95rem 1.6rem;
+          border-radius: 50px;
+          margin: 0.25rem 0.25rem;
+          font-weight: 700;
+          transition: all 300ms ease;
+        }
+
+        button:hover {
+          cursor: pointer;
+          background-color: #b3ffe2;
+        }
+
+        .error {
+          display: none;
+          transition: all 100ms ease;
+        }
+
+        .error-active {
+          position: absolute;
+          font-size: 0.75rem;
+          padding-left: 2rem;
+          transform: translateY(3.5rem);
+          font-weight: 900;
+          color: #fb3e3e;
+        }
+      }
+
+      .site-div {
+        display: flex;
+        align-items: center;
+        margin: 1.375rem 0rem 0rem;
+
+        img {
+          margin-right: 2.1rem;
+          filter: invert(40%) sepia(17%) saturate(811%) hue-rotate(187deg)
+            brightness(94%) contrast(92%);
+        }
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .main-section {
+    min-height: 100vh;
+    background-image: url("./Images/image-host-tablet.jpg");
+    background-size: initial;
+    background-position: top 0% right 0%;
+
+    .pod {
+      transform: translateY(50%);
+      padding-top: 3.125rem;
+      margin-bottom: 10.1rem;
+    }
+
+    .card-div {
+      h1 {
+        margin-right: 2.688rem;
+        font-size: 3rem;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      bottom: -2rem;
+      left: 2.438rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .main-section {
+    background-image: none;
+    background-color: $black;
+    opacity: 0.9;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    .pod {
+      padding-top: 0;
+      margin-top: 3.875rem;
+      margin-bottom: 3.875rem;
+    }
+
+    .card-div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      padding: 0rem 1.5rem;
+
+      h1 {
+        margin-right: 0;
+      }
+
+      .bottom-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          background-color: $black;
+          opacity: 0.9;
+          padding: 0.05rem;
+          border-radius: 50px;
+          width: 80%;
+          margin: 2.5rem 0rem;
+
+          .input-area {
+            display: flex;
+            flex-direction: column;
+
+            input {
+              background-color: $darkgray;
+              padding-top: 1.438rem;
+              padding-bottom: 1.438rem;
+              max-height: 46px;
+              border-radius: 50px;
+              margin-bottom: 1rem;
+            }
+
+            button {
+              padding-top: 0.97rem;
+              padding-bottom: 0.97rem;
+            }
+          }
+        }
+        .site-div {
+          margin-top: 2.063rem;
+          margin-bottom: 3rem;
+          margin-left: auto;
+          margin-right: auto;
+          display: flex;
+          justify-content: center;
+
+          .spotify {
+            margin-right: 1.438rem;
+            width: 56px;
+          }
+
+          .apple {
+            margin-right: 1.563rem;
+            width: 45px;
+          }
+
+          .google {
+            margin-right: 1rem;
+            width: 73px;
+          }
+
+          .pocket {
+            margin-right: 0;
+            width: 77px;
+          }
+        }
+      }
+    }
+
+    .dots {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .main-section {
+    .pod {
+      margin-top: 2.875rem;
+    }
+
+    .card-div {
+      h1 {
+        font-size: 1.625rem;
+        margin-top: 1.875rem;
+      }
+
+      p {
+        font-size: 0.938rem;
+      }
+
+      .bottom-container {
+        form {
+          margin-top: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
