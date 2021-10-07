@@ -6,23 +6,17 @@ import spotify from './Images/spotify.svg';
 import apple from './Images/apple-podcast.svg';
 import google from './Images/google-podcasts.svg';
 import pocket from './Images/pocket-casts.svg';
-import dots from './Images/bg-pattern-dots.svg'
+import dots from './Images/bg-pattern-dots.svg';
 
 
 const Hero = () => {
-    const [input, setInput] = useState('')
+    const myInput = document.getElementById('myInput');
 
-    const [submit, setSubmit] = useState('')
+    const [input, setInput] = useState('');
+
+    const [submit, setSubmit] = useState('');
 
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        console.log(submit)
-        if(emailRegex.test(submit)){
-            setInput('');
-        }
-    }
 
     const submitCheck = () =>{
         if(emailRegex.test(submit) === false && submit !== ''){
@@ -30,15 +24,33 @@ const Hero = () => {
         } else {
             return true;
         }
-    }
+    };
+
+    const ariaInput = () =>{
+        if(emailRegex.test(submit) === false){
+            myInput.setAttribute("aria-invalid", "true");
+            myInput.setAttribute("aria-describedBy", "error");
+        } else if(emailRegex.test(submit) && myInput.hasAttribute("aria-invalid")){
+            myInput.removeAttribute("aria-invalid");
+            myInput.removeAttribute("aria-describedBy");
+        }
+    };
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        ariaInput();
+        if(emailRegex.test(submit)){
+            setInput('');
+        }
+    };
 
     return (
-        <header className='main-section'>
+        <main className='main-section'>
            <img src={pod} alt='pod' className='pod' ></img>
            <div className='card-div'>
                <h1>
-                    PUBLISH YOUR PODCASTS<br/>
-                    <span>EVERYWHERE.</span>
+                    Publish your podcasts&nbsp;<br />
+                    <span>everywhere.</span>
                </h1>
                <p>
                    Upload your audio to Pod with a single 
@@ -52,13 +64,15 @@ const Hero = () => {
                                 <input type='text' 
                                 placeholder='Email address'
                                 value={input}
-                                onChange={(event) => setInput(event.target.value)} >
+                                onChange={(event) => setInput(event.target.value)}
+                                id='myInput'>
                                 </input>
-                                <button type='submit' onClick={() => setSubmit(input)}>
+                                <button type='submit' onClick={() =>setSubmit(input)}>
                             Request Access
                             </button>
                         </div>
-                            <p className={submitCheck() ? 'error' : 'error-active' }>
+                            <p className={submitCheck() ? 'error' : 'error-active' }
+                            id='error'>
                                     Oops! Please check your email
                             </p>
                     </form>
@@ -71,8 +85,11 @@ const Hero = () => {
                 </div>
            </div>
            <div className='background-images' />
-           <img src={dots} alt='dots' className='dots'></img>
-        </header>
+           <img src={dots} 
+           alt='' 
+           className='dots'
+           aria-hidden="true"></img>
+        </main>
     );
 }
  

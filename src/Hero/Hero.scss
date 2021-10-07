@@ -15,7 +15,7 @@ $lgtgray: #c2cbe5;
     z-index: 2;
     margin-bottom: 6.438rem;
     position: relative;
-    transform: translateY(-52%);
+    transform: translateY(-1.8rem);
   }
 
   .card-div {
@@ -32,6 +32,7 @@ $lgtgray: #c2cbe5;
       font-weight: 300;
       font-size: 3.25rem;
       margin: 5.5rem 3.7rem 1.5rem 0rem;
+      text-transform: uppercase;
 
       span {
         color: #ffffff;
@@ -214,6 +215,10 @@ $lgtgray: #c2cbe5;
               padding-top: 0.97rem;
               padding-bottom: 0.97rem;
             }
+          }
+
+          .error-active {
+            transform: translateY(2.55rem);
           }
         }
         .site-div {
