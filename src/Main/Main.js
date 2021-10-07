@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
-import './Hero.scss';
-import pod from './Images/logo.svg';
+import './Main.scss';
+import pod from './Images/logo.svg'
 import spotify from './Images/spotify.svg';
 import apple from './Images/apple-podcast.svg';
 import google from './Images/google-podcasts.svg';
@@ -9,7 +9,7 @@ import pocket from './Images/pocket-casts.svg';
 import dots from './Images/bg-pattern-dots.svg';
 
 
-const Hero = () => {
+const Main = () => {
     const myInput = document.getElementById('myInput');
 
     const [input, setInput] = useState('');
@@ -46,7 +46,7 @@ const Hero = () => {
 
     return (
         <main className='main-section'>
-           <img src={pod} alt='pod' className='pod' ></img>
+            <img src={pod} alt='pod' className='pod' />
            <div className='card-div'>
                <h1>
                     Publish your podcasts&nbsp;<br />
@@ -65,7 +65,8 @@ const Hero = () => {
                                 placeholder='Email address'
                                 value={input}
                                 onChange={(event) => setInput(event.target.value)}
-                                id='myInput'>
+                                id='myInput'
+                                aria-label='Enter valid email to request access'>
                                 </input>
                                 <button type='submit' onClick={() =>setSubmit(input)}>
                             Request Access
@@ -93,4 +94,4 @@ const Hero = () => {
     );
 }
  
-export default Hero;
+export default Main;
